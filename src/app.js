@@ -47,6 +47,11 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'));
 }
 
+// Add this in src/app.js
+app.get('/', (req, res) => {
+  res.send('Dusk Commerce API is running...');
+});
+
 // ─── Health Check ──────────────────────────────────────────
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', app: 'Dusk Commerce API', timestamp: new Date().toISOString() });
